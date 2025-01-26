@@ -160,8 +160,16 @@ public class RegistrationController {
     }
 
     public String applicationUrl(HttpServletRequest request) {
+        String scheme = request.getScheme(); // "http" or "https"
+    String serverName = request.getServerName(); // e.g., "localhost" or "your-app-name.railway.app"
+    int serverPort = request.getServerPort(); // e.g., 8080, 80, 443
+    String contextPath = request.getContextPath(); // e.g., "/your-app"
 
-        return "http://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath();
-    }
+    // Include the port only if it's not the default for the scheme
+    if ((scheme.equals("http") && serverPort == 80) || (scheme.equals("https") && serverPort == 443)) {
+        return scheme + "://" + serverName + contextPath;
+    } 
+        return scheme + "://" + serverName + ":" + serverPort + contextPath;
+        }
 
 }

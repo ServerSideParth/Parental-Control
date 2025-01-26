@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <link
+            rel="stylesheet"
+            th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css}"
+    />
+    <link rel="stylesheet" th:href="@{/started/cssfile/login.css}" />
+    <style>
+        .popup {
+             display: none;
+                position: fixed;
+                left: 50%;
+                top: 40px; /* Adjust the distance from the top as needed */
+                transform: translateX(-50%);
+                padding: 20px 40px;
+                background: #ADD8E6; /* Light blue background color */
+                color: #333333; /* Dark gray text color */
+                font-weight: bold;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                z-index: 1000;
+                opacity: 0;
+                transition: opacity 0.5s ease;
+          }
+
+          .popup.show {
+            display: block;
+            opacity: 1;
+          }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="box">
+        <h1 id="title">Login</h1>
+        <form th:action="@{/register/processloginform}"
+              method="POST">
+            <div th:if="${condition == true}">
+                <script>
+                    document.addEventListener("DOMContentLoaded", function() {
+                       showpop();
+                   });
+                </script>
+            </div>
+            <div class="input">
+                <div class="popup" id="popup">Welcome back! Your account is already registered. Please log in to continue</div>
+
+
+
+                <div class="input-field">
+                    <i class="fas fa-envelope-open"></i>
+                    <input type="email" name="email" placeholder="E-mail" autocomplete="email" required />
+                </div>
+
+
+
+                <div class="input-field">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" name="password" placeholder="Password" autocomplete="password" required />
+                </div>
+
+
+                <p>Forgot Password<a href="#">Click Here</a></p>
+            </div>
+            <div class="btn">
+                <button type="submit" id="login">Login</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="" th:src="@{/started/jsfile/pop.js}"></script>
+
+</body>
+</html>

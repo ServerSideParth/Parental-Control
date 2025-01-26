@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	 <title>Terms and condition</title>
+
+  <link rel="stylesheet" type="text/css" th:href="@{/started/cssfile/insfile.css}">
+</head>
+<body>
+
+<div class="wrapper flex_align_justify">
+  <div class="terms_service">
+       <div class="tc_item tc_head flex_align_justify">
+          <div class="icon flex_align_justify">
+          <ion-icon name="terminal-outline"></ion-icon>
+        </div>
+        <div class="text" > 
+          <h1 >INSTRUCTIONS</h1>
+        </div>
+      </div>
+      <div class="tc_item tc_body">
+        <ol>
+          <li>
+            <h3>INSTALLATION</h3>
+            <p>Install app Click on <a href="#">Click Here</a></p>
+          </li>
+          <li>
+            <h3>USE OF SERVICE</h3>
+            <p>Your child must be under 16 years to use this service</p>
+          </li>
+          <li>
+            <h3>USER ACCOUNT</h3>
+            <p>To access certain features of the Service, you may be required to register for an account.
+               When registering for an account, you agree to provide accurate and complete information.</p>
+          </li>
+          <li>
+            <h3>REGISTRATION</h3>
+            <p>Register yourself by entering your valid E-mail ID and Password and keep in mind that 
+              the email ID you use in you Web Application should be use in the Parental control app</p>
+          </li>
+        </ol>
+      </div>
+      <div class="tc_item tc_foot flex_align">
+          <button class="decline_btn" th:onclick="'window.location.href=\'' + @{https://dash-board23.netlify.app/} + '\''" >Decline</button>
+          <button class="accept_btn" th:onclick="'window.location.href=\'' + @{https://dash-board23.netlify.app/} + '\''">Accept</button>
+      </div>
+  </div>
+</div>
+<script type="module" th:src="@{https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js}"></script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Child's Information</title>
+
+    <link rel="stylesheet" th:href="@{/started/cssfile/child-file.css}" />
+
+</head>
+<body>
+<div class="container">
+    <h2>Fill your Child's Information here</h2>
+    <div class="form-container">
+
+        <form th:action="@{'/child/processchildform?token=' + ${tokii}}" th:object="${child}" method="post">
+
+            <!-- Conditional block in Thymeleaf -->
+            <div th:if="${condition == true}">
+                <script>
+                    document.addEventListener("DOMContentLoaded", function() {
+                       showpop();
+                   });
+                </script>
+            </div>
+
+
+
+            <div class="child-info">
+                <div class="popup" id="popup">Child registered</div>
+
+                <div class="input-name">
+                    <i class="fa fa-user lock"></i>
+                    <input
+                            type="text"
+                            th:field="${child.firstName}"
+                            placeholder="First Name"
+                            class="name"
+                    />
+
+                    <span>
+                        <i class="fa fa-user lock"></i>
+                        <input
+                                type="text"
+                                th:field="${child.lastName}"
+                                placeholder="Last Name"
+                                class="name"
+                        />
+                    </span>
+                </div>
+                <label th:if="${#fields.hasErrors('firstName')}"
+                       th:errors="${child.firstName}"
+                       class="error errorname"></label>
+                <div class="input-name">
+                    <i class="fa fa-calendar lock"></i>
+                    <input
+                            type="number"
+                            th:field="${child.age}"
+                            placeholder="Enter your child's Age"
+                            class="text-name"
+                    />
+                </div>
+
+                <label th:if="${#fields.hasErrors('age')}"
+                       th:errors="${child.age}"
+                       class="error errorpassword"></label>
+
+                <div class="input-name">
+                    <input
+                            type="radio"
+                            th:field="${child.gender}"
+                            class="radio-btn"
+                            name="gender"
+                            value="Male"
+                    />
+
+                    <label style="margin-right: 30px">Male</label>
+                    <input
+                            type="radio"
+                            th:field="${child.gender}"
+                            class="radio-btn"
+                            name="gender"
+                            value="Female"
+                    />
+                    <label>Female</label>
+                </div>
+                <label th:if="${#fields.hasErrors('gender')}"
+                       th:errors="${child.gender}"
+                       class="error errorpassword"></label>
+
+                <div class="input-name">
+                    <i class="fas fa-heart lock"></i>
+                    <input
+                            type="text"
+                            th:field="${child.relation}"
+                            placeholder="Relation"
+                            class="text-name"
+                    />
+                </div>
+                <label th:if="${#fields.hasErrors('relation')}"
+                       th:errors="${child.relation}"
+                       class="error errorpassword"></label>
+                <div class="input-name">
+                    <input type="checkbox" class="check-btn" id="cb" />
+                    <label for="cb" class="check">I agree on the given information is correct</label>
+                </div>
+                <div class="input-name">
+                  <a th:href="@{'/child/showchildform?token=' + ${tokii}}"> <button
+                            type="button"
+                            class="add"
+                            style="background-color: rgb(9, 119, 9)"
+                    >
+                        Add more
+                  </button></a>
+
+                    <button
+                            type="submit"
+                            class="button"
+                            style="background-color: rgb(13, 13, 51)"
+                    >
+                        Register
+                    </button>
+                    <a th:href="@{/child/showinstructionpage}">
+                        <button
+                                type="button"
+                                class="delete"
+                                style="background-color: rgb(202, 81, 10)"
+                        >
+                            Continue
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="" th:src="@{/started/jsfile/pop.js}"></script>
+
+</body>
+</html>

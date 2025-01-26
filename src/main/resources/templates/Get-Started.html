@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pc Web App</title>
+    <!-- font awesome cdn link -->
+<!--    <link rel="stylesheet" href="file.css" />-->
+    <link
+      rel="stylesheet"
+      th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css}"
+    />
+
+    <!-- custom css file link -->
+    <link rel="stylesheet" th:href="@{/started/cssfile/style.css}"/>
+</head>
+<body>
+<!-- header section -->
+<header class="header">
+    <a href="#" class="logo"><i class="fas fa-hotjar">PC WEB APP</i></a>
+
+    <div class="fas fa-bars"></div>
+    <nav class="navbar">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#About Us">About Us</a></li>
+            <li><a href="#service">Features</a></li>
+        </ul>
+    </nav>
+</header>
+<!-- home section -->
+<section id="home" class="home">
+    <h1 class="banner">PARENTAL CONTROL WEB APP</h1>
+    <h3 class="slogan">Keep your kids safe with Parental Control</h3>
+    <a th:href="@{/register/showparentform?login=1}"><button>Get Started</button></a>
+
+    <div class="fas fa-cog nut1"></div>
+    <div class="fas fa-cog nut2"></div>
+</section>
+
+<!-- about section -->
+<section class="about" id="about">
+    <h1 class="heading">ABOUT US</h1>
+    <div class="row">
+        <div class="content">
+            <h3>We Build a Safe Heaven in the Online World</h3>
+            <p>
+                Parentl control application have emerged as a proactive means for
+                parents to manage and monitor their children's online activities.
+                These application address concers related to inappropriate content,
+                excessive screen time, and potentialexposure to online threats. The
+                need for a comprehensive and user friendly parental control app
+                become apparent as parents seeksa balance between harnessing the
+                education benefits of the technology and protecting their children
+                from its potential pitfalls.
+            </p>
+            <a href="#"><button class="btn">Read more</button></a>
+        </div>
+        <div class="image">
+            <img src="" th:src="@{/started/images/Building hashtag (4).gif}" alt="" />
+        </div>
+    </div>
+</section>
+
+<!-- features -->
+<section id="feature" class="feature">
+    <h1 class="heading">FEATURES</h1>
+    <div class="row">
+        <div class="image">
+            <img src="" th:src="@{/started/images/Preferences.gif}" />
+        </div>
+        <div class="content">
+            <h3>Essential Features for Your Parental Control Web App</h3>
+            <p>
+                Parents will regulate and monitor their children's internet
+                activities at home , ensuring a safe online environment and prevent
+                access to inappropiate content. Parents will manage the use of
+                smarthphone and tablets by their children, controllig access to app,
+                website etc at home.
+            </p>
+            <a href="#"><button class="btn">Read more</button></a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="content">
+            <h3>User Authentication</h3>
+            <p>
+                User authentication in a parental control app is paramount for
+                ensuring the security and integrity of the platform. This
+                authentication process not only verifies the identity of the user
+                but also adds an additional layer of protection against unauthorized
+                access. With user authentication in place, parents can have peace of
+                mind knowing that only authorized individuals can make changes to
+                the app's settings and monitor their children's online activities
+                effectively.
+            </p>
+            <a href="#"><button class="btn">Read more</button></a>
+        </div>
+        <div class="image">
+            <img  th:src="@{/started/images/Login.gif}" rel="hello"/>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="image">
+            <img src="" th:src="@{/started/images/Social Dashboard.gif}" />
+        </div>
+        <div class="content">
+            <h3>Dashboard</h3>
+            <p>
+                The dashboard offers a concise overview of each child's device
+                activity, summarizing app usage, screen time, we browsing and device
+                status, provinding parents with real-time insight and enabling
+                effective management of screen time boundaries. By empowering
+                parents with comprehensive visibility and control over their
+                children's online experiences, the dashboard plays a crucial role in
+                promoting digital well-being and fostering a safe and healthy
+                digital environment for families.
+            </p>
+            <a href="#"><button class="btn">Read more</button></a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="content">
+            <h3>Activity Report</h3>
+            <p>
+                The activity report feature in a parental control app is an
+                invaluable tool for parents to gain insights into their children's
+                online behavior.This feature provides a detailed summary of the
+                child's digital activities, including websites visited, apps used,
+                search queries made, and even the duration of screen time spent on
+                various devices.
+            </p>
+            <a href="#"><button class="btn">Read more</button></a>
+        </div>
+        <div class="image">
+            <img src="" th:src="@{/started/images/Online report (1).gif}" />
+        </div>
+    </div>
+</section>
+<section class="footer"></section>
+
+<script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js}"></script>
+<script src="" th:src="@{/started/jsfile/myjs.js}"></script>
+</body>
+</html>

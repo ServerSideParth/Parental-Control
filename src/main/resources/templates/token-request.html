@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Common Page</title>
+
+    <link rel="stylesheet" type="text/css" th:href="@{/started/cssfile/request.css}" />
+</head>
+<body>
+<div class="wrapper flex_align_justify">
+    <div class="terms_service">
+        <div class="tc_item tc_head flex_align_justify">
+            <div class="text">
+                <h3 style="padding: 5px 8px">
+                    We're sorry, but it appears that the verification link you used is
+                    invalid or has expired. To ensure your account is properly
+                    verified, please request a new verification link.
+                </h3>
+            </div>
+        </div>
+        <div class="tc_item tc_body">
+            <h4 style="font-size: 14px">How to Get a New Verification Link:-</h4>
+            <br />
+            <ol>
+                <li>
+                    <p>Click the button below to receive a new verification link.</p>
+                </li>
+                <li>
+                    <p>Check your email inbox for the new verification email.</p>
+                </li>
+                <li>
+                    <p>
+                        Follow the instructions in the email to verify your account.
+                    </p>
+                </li>
+            </ol>
+        </div>
+        <div class="tc_item tc_foot flex_align">
+
+<!--            <button class="accept_btn"><bold>Get Link</bold></button>-->
+            <!-- Thymeleaf template code -->
+            <button type="button" class="accept_btn" th:onclick="'window.location.href=\'' + @{${url}} + '\''">Get Link</button>
+        </div>
+        <div class="last">
+            <p>Thank you for your understanding and cooperation.</p>
+        </div>
+    </div>
+</div>
+<script
+        type="module"
+        th:src="@{https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js}"
+></script>
+</body>
+</html>

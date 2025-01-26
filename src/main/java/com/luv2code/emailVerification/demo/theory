@@ -1,0 +1,365 @@
+
+
+
+                                   SPRING SECURITY
+                                 --------------------
+
+       (.)                        GrantedAuthority
+
+
+   GrantedAuthority is an interface in Spring Security that represents a granted authority or privilege
+   granted to an authenticated principal (typically a user) within a Spring Security-enabled application.
+   It is often used in conjunction with Spring Security's authentication and authorization mechanisms to
+   determine whether a user has the necessary permissions to access certain resources or perform specific actions.
+
+
+
+  (.) In a Spring Security-enabled application, when a user authenticates (logs in), they are assigned one or
+      more GrantedAuthority instances that represent the permissions or roles associated with their account.
+
+ (.) GrantedAuthority instances are commonly used to implement Role-Based Access Control (RBAC) in Spring Security.
+
+
+
+
+        (.)                  UserDetails
+
+UserDetails is an interface provided by Spring Security that represents core user information retrieved during
+the authentication process. It encapsulates details about a user such as their username, password, authorities,
+and account status.
+
+(.)    Authentication
+
+       When a user attempts to authenticate (e.g., by logging in), Spring Security's authentication mechanisms
+       load the user's details from a data source and construct a UserDetails object representing the user.
+
+(.)    Authorization
+
+       Once a user is successfully authenticated, Spring Security uses the UserDetails object to perform
+       authorization checks to determine whether the user is allowed to access certain resources or perform
+       specific actions.
+
+ (.)   Integration with Authentication Provider
+
+       UserDetails is often used by authentication providers (e.g., UserDetailsService) to load user details
+       from a data source during the authentication process.
+
+
+        (.)             UserDetailService
+
+ UserDetailsService is an interface provided by Spring Security that is used to retrieve user-related data
+ during the authentication process. It is a core part of Spring Security's authentication mechanism and
+ is responsible for loading user details (such as username, password, and authorities) from a data source
+ and returning them as a UserDetails object.
+
+
+
+
+             (.)             SimpleGrantedAuthority
+
+       SimpleGrantedAuthority is a simple implementation of the GrantedAuthority interface provided by
+       Spring Security. It represents a granted authority or role granted to an authenticated principal
+       (typically a user) within a Spring Security-enabled application.
+
+
+
+                (.)            Service Annotation
+
+       The @Service annotation in Spring is used to mark a class as a service component in the Spring application
+       context. It serves as a specialization of the @Component annotation, indicating that the annotated class
+       is a service class that contains business logic.
+
+              (.)  Component Scanning
+
+                  When Spring scans your application for components (beans), classes annotated with @Service
+                   are automatically detected and registered as a spring bean .
+                   Spring's component scanning mechanism, enabled by default, looks for classes annotated with
+                   @Service (as well as @Component, @Repository, and @Controller) and instantiates them as beans.
+
+               (.)  Specialization of @Component:
+
+                    While @Component can be used to annotate any generic Spring-managed component, @Service is
+                    specifically intended for service layer components that contain business logic.
+
+               (.)   Configuration classes can be used to define properties files, environment-specific
+                     configurations, and other externalized configuration settings.
+
+                     Configuration Annotation
+
+       The @Configuration annotation in Spring is used to indicate that a class is a configuration class that
+        provides configuration to the Spring application context.
+
+           (.)    Configuration classes are used to define Spring beans. Methods annotated with @Bean within
+                  a configuration class are used to declare bean definitions.
+
+            (.) Beans defined in configuration classes are automatically registered with the Spring application
+                context and can be injected into other components.
+
+                (.)                 Httpservletrequest
+
+       The HttpServletRequest interface in Java serves as a critical part of the Servlet API.
+       It is used to handle client requests in web applications and provides numerous methods to interact
+       with the request data. Here are the main uses of HttpServletRequest in a Spring Boot application:
+
+    (.)Accessing Request Parameters: Retrieve parameters sent in the request, typically from form
+       submissions or query strings.
+    (.)Reading Headers: Access HTTP headers for additional request information.
+    (.)Session Management: Retrieve and manage session information.
+    (.)Getting Contextual Information: Obtain information about the request context, such as the requested URL,
+       URI, and server details.
+
+
+
+            (.)                   InMemoryUserDetailsManager
+
+        InMemoryUserDetailsManager is a class provided by Spring Security.
+        It's used for managing user details in-memory within a Spring
+        Security configuration.
+
+          (.) InMemoryUserDetailsManager stores user details such as username, password, authorities (roles),
+               and additional attributes in memory.
+
+          (.)  It provides a mechanism for authenticating users based on the stored user details.
+               When a user attempts to log in, Spring Security compares the provided credentials with the
+               stored user details to verify the user's identity.
+
+          (.)  It also provides information about the authorities assigned to each user. This information
+               is used by Spring Security to determine whether a user is authorized to access certain
+               resources or perform specific actions within the application.
+
+                   (.)                  SecurityFilterChain
+
+         SecurityFilterChain is a concept in Spring Security that represents a chain of filters
+         responsible for handling security-related concerns in a web application. Each SecurityFilterChain
+         typically consists of a sequence of filters that are applied to incoming HTTP requests
+         to perform tasks such as authentication, authorization, CSRF protection, session management,
+         and more.
+             (.) SecurityFilterChain instances are ordered based on their specificity. The most specific
+                 SecurityFilterChain that matches the request URL pattern is selected to handle the request.
+
+
+                   (.)                   HttpSecurity
+
+         HttpSecurity is a configuration object provided by Spring Security that allows you to configure
+         security-related settings for HTTP requests in a web application.
+
+              (.) authorizeHttpRequests : You can use methods such as authorizeRequests() to define
+                                         authorization rules for different URL patterns or request criteria.
+              (.) formLogin
+              (.) Logout Handling
+
+
+                         (.)            userDetailsManager
+
+              UserDetailsManager is an interface provided by Spring Security that defines operations
+              for managing user details, such as creating, updating, deleting, and retrieving user
+              information. It's typically used in applications where user accounts are stored in a
+              persistent storage mechanism, such as a database.
+              UserDetailsManager is often implemented by classes such as JdbcUserDetailsManager,
+              InMemoryUserDetailsManager.
+
+
+
+
+
+
+
+                   (.)                Application event
+
+      The main use of ApplicationEvent in Spring Framework is to facilitate the implementation of the Observer
+      design pattern through the publish-subscribe event mechanism.
+      This allows components within a Spring application to communicate and respond to various occurrences or
+      state changes. Here are the primary uses of ApplicationEvent:
+
+      (.) Event Types: ApplicationEvent serves as the base class for defining custom event types specific
+          to an application's domain. These events encapsulate meaningful occurrences or state changes within
+          the application.
+
+      (.) Event Publication: Components, such as services or controllers, can publish instances of
+          ApplicationEvent to notify other parts of the application about specific events.
+          These events are typically published using the ApplicationEventPublisher interface.
+
+
+
+
+                                        DATA BINDING
+                                     ------------------
+
+   we can acess the model attribute without specifying th:object and th:field we can use whenever we have
+   some information we will just need to populate it in the thymeleaf template
+   if we have to handling form data you are starting with nothing use model attribute -  ${message}
+
+     param is a thymeleaf attribute which is generally used to access the parameters present in url
+     as one controller makes a get  request to another controller the form values which is submitted by the
+     user is typically merged with url in that case we can acees its values in another thymeleaf template
+
+
+
+      (.)                       HttpServletRequest
+
+   HttpServletRequest is used to interact with HTTP request data directly. It provides access to request
+   parameters, headers, attributes, and other request-specific information.
+   Commonly used for lower-level operations and accessing raw request data.
+
+   HttpServletRequest is not limited to extracting the request body; it provides a
+   comprehensive interface to access different parts of the HTTP request.
+   It can extract request parameters, headers, attributes, path information, and session information.
+   For extracting the request body, methods like getReader() and getInputStream() are used.
+   HttpServletRequest is versatile and can handle various aspects of the incoming request in a web application.
+
+
+                        typical use case
+
+   (.)  When you need to access multiple parameters dynamically or handle request-specific details.
+
+
+
+     (.)                Model attribute
+                    -----------------
+   Model (or ModelMap, ModelAndView) is used to pass data from the controller to the view.
+   It is a higher-level abstraction specific to the Spring MVC framework.
+   It provides a way to add attributes to be rendered in the view template.
+
+
+                          typical use case
+
+   (.)When you want to leverage Spring’s data binding and validation mechanisms.
+   (.)When you need to pass data to the view layer in a type-safe manner.
+   (.)When you are working within the Spring MVC framework and prefer higher-level abstractions.
+
+
+
+
+          (.)               RequestParam
+
+
+     It is a alternative method to httpservletrequest to read form data spring has a special annotation
+     @RequestParam this will allow you to read form data directly like httpservrequest but it will
+     automatically bind it to a parameter on a method
+
+
+                   (.)          Difference between HttpServlet request and requestparam
+
+
+
+     When the form is submitted, the values of the form fields (i.e., name and email) are sent as part
+     of the HTTP request. The @RequestParam annotation extracts these values and binds them to the
+      corresponding method parameters.
+
+
+      HttpServletRequest is not limited to extracting the request body; it provides a comprehensive interface
+       to access different parts of the HTTP request.
+      It can extract request parameters, headers, attributes, path information, and session information.
+      For extracting the request body, methods like getReader() and getInputStream() are used.
+      HttpServletRequest is versatile and can handle various aspects of the incoming request in a web application.
+
+
+                 (.)            th:object
+
+          In Thymeleaf, the th:object attribute is used within a <form> tag to bind the form fields to a
+          specific model attribute. This attribute specifies the object that the form fields should be bound
+          to, typically a form-backing bean or command object. When combined with @ModelAttribute in a Spring MVC
+          controller, th:object ensures that the form fields correspond to the properties of the model attribute.
+
+
+                  (.)             importance of th:field
+
+
+         (.) Pre-populating Form Fields: When rendering a form, Thymeleaf uses the values from the model object
+             to populate the form fields. For example, if the model object has a property firstName with the value
+             "John", the corresponding input field in the form will be pre-filled with "John".
+
+         (.) Binding Submitted Data: When the form is submitted, the data entered by the user is automatically bound
+             to the corresponding properties of the model object. This binding is handled by Spring MVC's data binding
+             mechanism, ensuring that the form data is correctly mapped to the object properties.
+
+
+
+
+
+
+                               BINDING AND VALIDATION
+                            -----------------------------
+
+    When the controller method is invoked, Spring MVC creates a model attribute named "customer" and
+       binds data from the HTTP request to it.
+       theCustomer is the name of the parameter in the controller method. It's the variable that will hold
+       the data bound to the model attribute.
+       When the controller method is invoked, Spring MVC populates the Customer object (theCustomer) with data
+       from the HTTP request parameters, based on the form field names and the properties of the Customer class.
+
+
+
+
+                (.)                         BindingResult
+
+        When a form is submitted, Spring Boot automatically binds the form data to a corresponding model attribute
+        in a controller method.If the form data fails validation, Spring Boot populates a BindingResult object
+         with information about the validation errors.
+         Thymeleaf provides specific syntax (e.g., th:errors) for rendering validation error messages based on the
+         information stored in the BindingResult.
+
+
+
+                     (.)                     Valid
+
+          Before invoking the controller method, Spring MVC checks if the method parameter annotated
+          with @Valid requires validation.
+         It looks for validation constraints specified on the fields of the parameter object using annotations
+         such as @NotNull, @Size, @Email, etc., from the javax.validation.constraints package.
+         When using Thymeleaf with Spring MVC, you can display validation error messages in the HTML form using
+         Thymeleaf syntax, such as th:errors.
+
+
+
+          (.)           Model attribute works with Validation
+
+
+    Step1:   Binding Data Submitted via HTTP Request: The form data submitted via the HTTP request
+             is bound to a method parameter annotated with @ModelAttribute.
+
+    step2:  Creation of New Instance: Spring MVC creates a new instance of the specified object
+            type (e.g., Customer, User, etc.).
+
+    step3:   Population of Fields with Data: After creating the new instance, Spring MVC populates
+             the fields of this object instance with the data submitted via the HTTP request.
+             It matches the form field names (from the HTML form) with the fields of the object.
+
+    step4:    Validation: Once the object is populated with data, Spring MVC automatically
+              triggers the validation process if the method parameter is annotated with @Valid.
+              This validation process involves checking the object's fields against any validation
+              constraints defined using annotations such as @NotNull, @Size, @Pattern, etc.
+
+    step5:    Binding Result: If validation errors occur, Spring MVC captures these errors and binds them
+              to a BindingResult object. This object contains information about the validation errors,
+              such as the field name, error code, and error message.
+
+    step7:    Adding to the Model: Whether validation succeeds or fails,
+              Spring MVC adds the object (along with the BindingResult if validation errors occurred)
+              to the model under the attribute name specified in @ModelAttribute. This makes the object
+              and any associated validation errors accessible in the view layer for further processing or
+              rendering.
+
+
+                    (.)             Difference webdatabinder and modelattribute
+
+
+         WebDataBinder allows you to register custom property editors, converters, and validators.
+         This gives you more control over how data is bound and validated.
+
+         While @ModelAttribute is useful for basic data binding, WebDataBinder allows you to implement
+         complex binding and validation logic that may not be achievable with annotations alone.
+
+
+    Model attribute says that read the form data from that model attribute customer so that was the customer
+      submitted by html form
+
+    When the form is first loaded it's gonna call getter method so it will call the getFirstNmae() like
+    it will use these to populate the fields initially.
+
+    Then when we click on submit button it will actually call setter methods any form data that you have
+    it will call the appropriate setter methods it will call setFirstName(),setLastName()
+
+
+
+

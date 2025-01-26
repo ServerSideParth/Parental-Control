@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>signup Page</title>
+    <link
+            rel="stylesheet"
+            th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css}"
+    />
+    <link rel="stylesheet" th:href="@{/started/cssfile/signup.css}" />
+    <style>
+        .error {
+           color: #e03131; /* Red color for error messages */
+           font-size: 14px; /* Adjust the font size */
+           font-weight: bold; /* Makes the error message bold */
+       }
+       .errorpassword {
+           padding-left: 0px;
+
+       }
+
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="box">
+        <h1 id="title">Sign Up</h1>
+        <form
+                th:action="@{/register/processform}"
+                th:object="${user}"
+                method="POST"
+        >
+            <div th:if="${condition == true}">
+                <script>
+                    document.addEventListener("DOMContentLoaded", function() {
+                       showpop();
+                   });
+                </script>
+            </div>
+            <div class="input">
+                <div class="popup" id="popup">
+                    <strong>⚠️ User Not Registered</strong><br>
+                    Please sign up to get started and enjoy our services.
+                </div>
+
+                <div class="input-field" id="name">
+                    <i class="fas fa-user-circle"></i>
+                    <input
+                            type="text"
+                            th:field="${user.userName}"
+                            placeholder="Name "
+                    />
+                </div>
+
+                <label th:if="${#fields.hasErrors('userName')}"
+                       th:errors="${user.userName}"
+                        class="error errorpassword">
+
+                </label>
+
+                <div class="input-field">
+                    <i class="fas fa-envelope-open"></i>
+                    <input
+                            type="email"
+                            th:field="${user.email}"
+                            placeholder="E-mail"
+
+                    />
+                </div>
+
+                <label th:if="${#fields.hasErrors('email')}"
+                      th:errors="${user.email}"
+                      class="error errorpassword">
+
+                </label>
+
+                <div class="input-field">
+                    <i class="fas fa-lock"></i>
+                    <input
+                            type="password"
+                            th:field="${user.password}"
+                            placeholder="Password"
+
+                    />
+                </div>
+
+                <label th:if="${#fields.hasErrors('password')}"
+                      th:errors="*{password}"
+                      class="error errorpassword">
+
+                </label>
+
+                <p>Forgot Password<a href="#">&nbsp;Click Here</a></p>
+            </div>
+            <div class="btn">
+                <button type="submit" id="signup">Sign Up</button>
+                <button type="button" id="login">
+                    <a th:href="@{/register/showparentloginform?register=0}" style="text-decoration: none; color: white"
+                    >Login</a
+                    >
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="" th:src="@{/started/jsfile/pop.js}"></script>
+
+</body>
+</html>

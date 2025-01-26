@@ -1,0 +1,28 @@
+server:
+  port: 9191
+
+spring:
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: mishrapratham525@gmail.com
+    password: quzq msbt qxto oqzz
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+  profiles:
+    active: ${ENV:dev}
+#  jpa:
+#    show-sql: true
+
+
+
+
+logging:
+  level:
+    org.springframework.security: DEBUG
